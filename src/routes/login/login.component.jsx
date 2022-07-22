@@ -1,13 +1,18 @@
-import {signInWithGooglePopup, createUser} from "../../utils/firebase/firebase.utils";
+import {useEffect} from "react";
+import {GoogleSignIn} from "../../services/database/auth/google-signin.auth.service";
+import {SignUpForm} from "../../components/signup/signup-form.component";
 
 export const Login = () => {
-    const loginGoogleUser = async () => {
-        const {user} = await signInWithGooglePopup();
-        await createUser({id: user.uid, name: user.displayName, email: user.email});
-    }
+    const authService = new GoogleSignIn(true);
+
+    useEffect(() => {
+        void authService.createUserForGoogleSignIn();
+    }, []);
+
     return (
         <div><h1>This page is under construction</h1>
-            <button onClick={loginGoogleUser}>SignIn With Google</button>
+            <button onClick={authService.signIn}>SignIn With Google</button>
+            <SignUpForm />
         </div>
     );
 }
