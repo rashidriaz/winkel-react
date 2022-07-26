@@ -1,5 +1,5 @@
 import {useEffect} from "react";
-import {GoogleSignIn} from "../../services/database/auth/google-signin.auth.service";
+import {GoogleSignIn} from "../../services/database/auth/google-auth.service";
 import {SignUpForm} from "../../components/signup/signup-form.component";
 
 export const Login = () => {

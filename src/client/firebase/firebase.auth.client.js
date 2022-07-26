@@ -1,4 +1,10 @@
-import {getAuth, signInWithRedirect, signInWithPopup, GoogleAuthProvider} from 'firebase/auth';
+import {
+  getAuth,
+  signInWithRedirect,
+  signInWithPopup,
+  GoogleAuthProvider,
+  createUserWithEmailAndPassword
+} from 'firebase/auth';
 
 export class FirebaseAuthClient {
   #provider;
@@ -16,5 +22,10 @@ export class FirebaseAuthClient {
 
   async signInWithGooglePopup() {
     return await signInWithPopup(this.auth, this.#provider);
+  }
+
+  async createUserWithEmailAndPassword({email, password}) {
+    if (!email || !password) return;
+    return await createUserWithEmailAndPassword(this.auth, email, password);
   }
 }

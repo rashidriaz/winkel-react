@@ -6,13 +6,13 @@ import {UserDbService} from "../db/user.db.service";
 export class GoogleSignIn {
   #useRedirect;
   #firebaseAuth;
-  #dbService;
+  #userDBService;
   #response;
 
   constructor(useRedirectMethod) {
     this.#useRedirect = useRedirectMethod;
     this.#firebaseAuth = new FirebaseAuthClient();
-    this.#dbService = new UserDbService();
+    this.#userDBService = new UserDbService();
   }
 
   signIn = () => {
@@ -38,7 +38,7 @@ export class GoogleSignIn {
       return;
     }
     const {user: {displayName, email, uid}} = this.#response;
-    return this.#dbService.createUser({name: displayName, email, id: uid})
+    return this.#userDBService.createUser({name: displayName, email, id: uid})
   }
 
 
