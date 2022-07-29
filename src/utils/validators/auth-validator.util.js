@@ -28,12 +28,16 @@ export class AuthValidator {
       return message;
     }
   }
+
   static getErrorMessageForFirebaseAuthErrors({code}) {
-    if (code === "auth/email-already-in-use") {
-      return {error: "Email already in use"};
-    } else {
-      console.log(code);
-      return {error: "something went wrong. Please try again later."};
+    switch (code) {
+      case "auth/email-already-in-use":
+        return {error: "Email already in use"};
+      case "auth/user-not-found":
+      case "auth/wrong-password":
+        return {error: "Incorrect email or password"};
+      default:
+        return {error: "something went wrong. Please try again later."};
     }
   }
 }

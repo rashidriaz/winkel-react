@@ -19,6 +19,14 @@ export class AuthService {
     }
   }
 
+  async signInUser({email, password}) {
+    try {
+      return {authResponse: await this.#firebaseAuth.signIn(email, password)}
+    } catch (error) {
+      return AuthValidator.getErrorMessageForFirebaseAuthErrors(error);
+    }
+  }
+
   async createUserInFirestore(documentData) {
     try {
       return {response: await this.userDBService.createUser(documentData)};

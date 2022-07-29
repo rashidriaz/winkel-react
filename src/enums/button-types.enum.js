@@ -3,4 +3,4 @@ const BUTTON_TYPES = {
   inverted: "inverted",
   default: "default",
 }
-export const ButtonTypes = Object.freeze(BUTTON_TYPES);
+export const ButtonTypesEnum = Object.freeze(BUTTON_TYPES);

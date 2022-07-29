@@ -1,9 +1,9 @@
-import {ButtonTypes} from "../../enums/button-types";
+import {ButtonTypesEnum} from "../../enums/button-types.enum";
 import "./button.styles.scss"
-export const Button = ({child, buttonType, ...otherProps}) => {
+export const Button = ({children, buttonType, ...otherProps}) => {
     return (
-        <button {...otherProps} className={`button-container  ${ButtonTypes[buttonType]}`} >
-            {child}
+        <button {...otherProps} className={`button-container  ${ButtonTypesEnum[buttonType]}`} >
+            {children}
         </button>
     )
 }

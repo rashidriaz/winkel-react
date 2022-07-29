@@ -3,7 +3,8 @@ import {
   signInWithRedirect,
   signInWithPopup,
   GoogleAuthProvider,
-  createUserWithEmailAndPassword
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword
 } from 'firebase/auth';
 
 export class FirebaseAuthClient {
@@ -20,12 +21,17 @@ export class FirebaseAuthClient {
     await signInWithRedirect(this.auth, this.#provider);
   }
 
-  async signInWithGooglePopup() {
-    return await signInWithPopup(this.auth, this.#provider);
+  signInWithGooglePopup() {
+    return signInWithPopup(this.auth, this.#provider);
   }
 
-  async createUserWithEmailAndPassword({email, password}) {
+  createUserWithEmailAndPassword({email, password}) {
     if (!email || !password) return;
-    return await createUserWithEmailAndPassword(this.auth, email, password);
+    return createUserWithEmailAndPassword(this.auth, email, password);
+  }
+
+  async signIn(email, password) {
+    if (!email || !password) return;
+    return signInWithEmailAndPassword(this.auth, email, password);
   }
 }

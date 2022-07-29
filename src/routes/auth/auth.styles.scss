@@ -1,0 +1,30 @@
+.auth-forms{
+  margin: 50px auto 50px auto;
+  width: 500px;
+  div{
+    padding: 0 5px;
+  }
+}
+.divider{
+  display: block;
+  width: 100%;
+  margin: 20px auto;
+  text-align: center;
+  font-size: larger;
+}
+.auth-providers{
+  display: flex;
+  margin: 10px auto;
+  button{
+    margin-left: auto;
+    margin-right: auto;
+    img{
+      height: 30px;
+      width: 30px;
+      margin: auto 5px auto 0;
+    }
+  }
+}
+.link:hover{
+  text-decoration: underline;
+}

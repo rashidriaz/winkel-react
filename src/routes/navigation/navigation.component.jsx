@@ -10,8 +10,8 @@ export const Navigation = () => {
                     <Logo className="logo" />
                 </Link>
                 <div className="nav-links-container">
-                    <Link className="nav-link" to="/shop">Shop</Link>
-                    <Link className="nav-link" to="/login">Login</Link>
+                    <Link className="nav-link" to="shop">Shop</Link>
+                    <Link className="nav-link" to="auth/sign-in">Login/Sign up</Link>
                 </div>
             </div>
             <Outlet/>
