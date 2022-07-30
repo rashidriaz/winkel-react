@@ -4,7 +4,9 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
-  signInWithEmailAndPassword
+  signInWithEmailAndPassword,
+  signOut,
+  onAuthStateChanged
 } from 'firebase/auth';
 
 export class FirebaseAuthClient {
@@ -33,5 +35,13 @@ export class FirebaseAuthClient {
   async signIn(email, password) {
     if (!email || !password) return;
     return signInWithEmailAndPassword(this.auth, email, password);
+  }
+  async signOut(){
+    const response = await signOut(this.auth);
+    console.log(response);
+  }
+  onAuthStateChangeListener(callback){
+    if (!callback)return;
+    return onAuthStateChanged(this.auth, callback);
   }
 }

@@ -21,7 +21,8 @@ export class AuthService {
 
   async signInUser({email, password}) {
     try {
-      return {authResponse: await this.#firebaseAuth.signIn(email, password)}
+      const {user} = await this.#firebaseAuth.signIn(email, password);
+      return {user};
     } catch (error) {
       return AuthValidator.getErrorMessageForFirebaseAuthErrors(error);
     }
@@ -42,6 +43,16 @@ export class AuthService {
     let {error, authResponse} = await this.signUpUser(email, password)
     if (error) return {error};
     const {user: {uid}} = authResponse
-    return this.createUserInFirestore({name, email, id: uid});
+    const response = await this.createUserInFirestore({name, email, id: uid});
+    return response.error ? {error: response.error} : {user: authResponse.user};
+
+  }
+
+  signOut = async () => {
+    await this.#firebaseAuth.signOut();
+  }
+
+  onAuthStateChangeListener(callback) {
+    return this.#firebaseAuth.onAuthStateChangeListener(callback);
   }
 }

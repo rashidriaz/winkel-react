@@ -6,7 +6,6 @@ import "./auth.styles.scss"
 
 export const Auth = () => {
     const authService = new GoogleSignIn(true);
-    const [signIn, toggleSignIn] = useState(true);
     useEffect(() => {
         void authService.createUserForGoogleSignIn();
     }, []);

@@ -16,7 +16,6 @@ export const SignUpForm = () => {
     const [formFields, setFormFields] = useState(defaultFormFields);
     const [errorMessage, setErrorMessage] = useState(null);
     const {name, email, password, confirmPassword} = formFields;
-
     const resetFormFields = () => {
         setFormFields(defaultFormFields);
     }

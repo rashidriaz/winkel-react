@@ -13,15 +13,13 @@ export const SignInForm = () => {
     const [formFields, setFormFields] = useState(defaultFormFieldValues);
     const [errorMessage, setErrorMessage] = useState(null);
     const {email, password} = formFields;
-
-
     const resetFormFields = () => {
         setFormFields(defaultFormFieldValues);
     }
     const onFormSubmit = async (event) => {
         event.preventDefault();
-        const {error, authResponse} = await authService.signInUser(formFields)
-        console.log(authResponse);
+        const {error, user} = await authService.signInUser(formFields)
+        console.log(user);
         if (error) {
             setErrorMessage(error);
         } else {
