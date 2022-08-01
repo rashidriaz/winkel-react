@@ -4,10 +4,8 @@ import {Navigation} from "./routes/navigation/navigation.component";
 import {Auth} from "./routes/auth/auth.component";
 import {SignInForm} from "./components/sign-in/sign-in.component";
 import {SignUpForm} from "./components/signup/signup-form.component";
+import {Shop} from "./routes/shop/shop.component";
 
-const Shop = () => {
-  return (<h1>Hello there! Welcome to our shop</h1>);
-}
 export const App = () => {
 
   return (
