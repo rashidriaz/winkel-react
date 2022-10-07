@@ -8,7 +8,7 @@ export const AuthProviderOptions = () => {
     return (
         <div className="auth-providers">
             <Button onClick={authService.signIn} buttonType="google">
-                <img src="/google.svg" alt="google"/>Sign In With Google</Button>
+                Sign In With Google</Button>
         </div>
     );
 }
