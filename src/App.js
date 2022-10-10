@@ -5,6 +5,7 @@ import {Auth} from "./routes/auth/auth.component";
 import {SignInForm} from "./components/sign-in/sign-in.component";
 import {SignUpForm} from "./components/signup/signup-form.component";
 import {Shop} from "./routes/shop/shop.component";
+import {Checkout} from "./routes/checkout/checkout.component";
 
 export const App = () => {
 
@@ -17,6 +18,7 @@ export const App = () => {
           <Route path="sign-in" element={<SignInForm/>}/>
           <Route path="sign-up" element={<SignUpForm/>}/>
         </Route>
+        <Route path="checkout" element={<Checkout/>}></Route>
 
       </Route>
 
