@@ -4,7 +4,7 @@ import {useContext} from "react";
 import {CheckoutItem} from "../../components/checkout-item/checkout-item.component"
 
 export const Checkout = ()=>{
-    const {cartItems, increaseItemQuantity, decreaseItemQuantity} = useContext(CartContext);
+    const {cartItems, cartTotal} = useContext(CartContext);
     let total = 0;
 
     return (
@@ -22,7 +22,7 @@ export const Checkout = ()=>{
                         return <CheckoutItem key={item.id} cartItem={item}/>
                     })
                 }
-                <span className="total">Total: ${total}</span>
+                <span className="total">Total: ${cartTotal}</span>
         </div>
     )
 }

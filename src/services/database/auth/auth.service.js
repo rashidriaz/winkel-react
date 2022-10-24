@@ -42,7 +42,7 @@ export class AuthService {
 
     let {error, authResponse} = await this.signUpUser(email, password)
     if (error) return {error};
-    const {user: {uid}} = authResponse
+    const {user: {uid}} = authResponse;
     const response = await this.createUserInFirestore({name, email, id: uid});
     return response.error ? {error: response.error} : {user: authResponse.user};
 

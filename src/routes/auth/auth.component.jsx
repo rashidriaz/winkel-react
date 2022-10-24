@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {Outlet, Link} from "react-router-dom";
+import {Outlet} from "react-router-dom";
 import {GoogleSignIn} from "../../services/database/auth/google-auth.service";
 import {AuthProviderOptions} from "../../components/auth-providers/auth-providers.component";
 import "./auth.styles.scss"

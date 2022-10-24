@@ -19,8 +19,8 @@ export class AuthValidator {
   }
 
   static validatePassword(password, confirmPassword) {
-    let result = AuthValidator.#matchPasswords(password, confirmPassword) ??
-      AuthValidator.#checkPasswordLength(password) ??
+    let result = AuthValidator.#matchPasswords(password, confirmPassword) ||
+      AuthValidator.#checkPasswordLength(password) ||
       AuthValidator.#isPasswordAlphanumeric(password);
     console.log(result);
     if (result) {
