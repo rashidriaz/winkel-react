@@ -1,8 +1,7 @@
 import {useState} from "react";
 import {AuthService} from "../../services/database/auth/auth.service";
 import {FormInput} from "../form-input/form-input.component";
-import {Button} from "../button/button.component";
-import "./signup-form.styles.scss"
+import {AuthFormContainer, AuthFormHeading, CenteredButton, UnderlinedLink} from "./auth-form.styles"
 import {Link} from "react-router-dom";
 
 const defaultFormFields = {
@@ -40,8 +39,8 @@ export const SignUpForm = () => {
     }
 
     return (
-        <div className="auth-form-container">
-            <h2>Create an account</h2>
+        <AuthFormContainer>
+            <AuthFormHeading>Create an account</AuthFormHeading>
             {
                 renderErrorMessage()
             }
@@ -62,9 +61,9 @@ export const SignUpForm = () => {
                            name="confirmPassword"
                            onChange={handleChange}/>
 
-                <Button type="submit" buttonType="default">Create an Account</Button>
-                <span>Already have an account? <Link className="link" to="../sign-in">Sign In</Link></span>
+                <CenteredButton type="submit" buttonType="default">Create an Account</CenteredButton>
+                <span>Already have an account? <UnderlinedLink to="../sign-in">Sign In</UnderlinedLink></span>
             </form>
-        </div>
+        </AuthFormContainer>
     );
 }

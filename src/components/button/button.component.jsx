@@ -1,10 +1,11 @@
-import {ButtonTypesEnum} from "../../enums/button-types.enum";
-import "./button.styles.scss"
+import {getButton} from "../../enums/button-types.enum";
+import {ButtonImage} from "./button.styles"
 
 export const Button = ({children, buttonType, ...otherProps}) => {
+    const CustomButton = getButton(buttonType)
     return (
-        <button {...otherProps} className={`button-container  ${ButtonTypesEnum[buttonType]}`}>
-            {buttonType === "google" && <img src="/google.svg" alt="google"/>}{children}
-        </button>
+        <CustomButton {...otherProps}>
+            {buttonType === "google" && <ButtonImage src="/google.svg" alt="google"/>}{children}
+        </CustomButton>
     )
 }

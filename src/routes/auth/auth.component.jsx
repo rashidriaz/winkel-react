@@ -1,8 +1,8 @@
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import {Outlet} from "react-router-dom";
 import {GoogleSignIn} from "../../services/database/auth/google-auth.service";
 import {AuthProviderOptions} from "../../components/auth-providers/auth-providers.component";
-import "./auth.styles.scss"
+import {AuthFormsContainer, Divider, AuthContainer} from "./auth.styles"
 
 export const Auth = () => {
     const authService = new GoogleSignIn(true);
@@ -11,13 +11,13 @@ export const Auth = () => {
     }, []);
 
     return (
-        <div>
-            <div className="auth-forms">
+        <AuthContainer>
+            <AuthFormsContainer>
                 <Outlet/>
-            </div>
-            <span className="divider">OR</span>
+            </AuthFormsContainer>
+            <Divider>OR</Divider>
             <AuthProviderOptions/>
-        </div>
+        </AuthContainer>
     );
 }
 
